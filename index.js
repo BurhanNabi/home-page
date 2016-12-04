@@ -113,6 +113,10 @@ d3.select(".chart")
 
 
 
+
+
+// Moment.js
+
 var now = moment().format('DD MMMM YYYY'); // December 4th 2016, 12:06:26 am
 console.log(now);
 $('#today').html(now);
@@ -181,3 +185,55 @@ var newDay = function() {
 	localStorage.removeItem('checked');
 	location.reload();
 }
+
+
+
+
+var grad = moment().format('31 5 2018','DD MMMM YYYY');
+
+// Set interval timouts
+setInterval(function() {
+	var grad = moment([2017, 4, 30]);
+	var life = moment([2050, 9, 25]);
+
+	var now = moment();
+	var unix = grad.unix() - now.unix();
+	var secs = unix;
+
+
+	var days = Math.floor(secs/86400);
+	secs = (secs % 86400);
+	var minutes = Math.floor(secs/60);
+	secs = (secs % 60);
+
+	var msg = "<strong>Acad Year </strong>: " 
+		+ days+ ' days'
+		+ ' ' + minutes + ' mins '  
+		+ ' ' + secs + ' secs '  ;
+
+
+	var unix = life.unix() - now.unix();
+	var secs = unix;
+
+	var months = Math.floor(secs/(30*86400));
+	secs = (secs % (86400*30));
+	var days = Math.floor(secs/86400);
+
+
+	var msg2 = "<strong>Life</strong> : " 
+		+ months + ' months'
+		+ ' ' + days + ' days ';
+
+	$('#timeGrad').html(msg);
+	$('#timeLife').html(msg2);
+
+}, 1000);
+
+
+
+
+
+
+
+// Pie chart
+
