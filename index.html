@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hoam Paige</title>
+	<script type="text/javascript" src="d3/d3.js"></script>
+	<link rel="stylesheet" href="mdl/material.min.css">
+	<script src="mdl/material.min.js"></script>
+	<script src="jquery/jquery.js"></script>
+	<script src="moment/moment.js"></script>
+</head>
+<body>
+<div class="main mdl-grid">
+	<div class="mdl-cell--2-col"></div>
+	<div class="mdl-cell--10-col">
+	<h5 class="mdl-cell--10-col" id="today" style="text-align:center;"></h5>
+
+	<!-- NEW TO DO TF -->
+		<div class="mdl-grid">
+			<div class="mdl-cell--7-col">
+				<div class="mdl-textfield mdl-js-textfield mdl-10extfield--floating-label">
+				    <input class="mdl-textfield__input" type="text" id="newToDo">
+				    <label class="mdl-textfield__label" for="newToDo">New to do...</label>
+			  </div>
+		  	<ul class="mdl-list mdl-cell--8-col" id="TDL"></ul>
+	  	</div>
+		  <div class="mdl-cell--4-col">
+		  	<div class="mdl-cell--12-col">
+		  		<h5 id='numdays' style="text-align: center;"></h5>
+		  		<div class="chart"></div>
+		  	</div>
+	  	</div>
+
+	  </div>
+
+	</div>
+</div>
+
+<script src="./index.js"></script>
+
+<style type="text/css">
+
+.chart div {
+  font: 10px sans-serif;
+  font-size: 15px;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
+</style>
+
+</body>
+</html>
