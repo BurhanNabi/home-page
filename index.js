@@ -90,7 +90,7 @@ var toggleCheck = function( i ) {
 
 // D3 Stuff
 
-var data = [4, 8, 15, 16, 23, 42, 31,  20,  14, 33];
+var data = [40, 80, 100, 60, 30, 45, 75,  80,  60, 90];
 var stats = localStorage.getItem('stats');
 stats = JSON.parse(stats);
 if(stats!= null) {
@@ -98,7 +98,7 @@ if(stats!= null) {
 	else data = stats.slice(stats.length - 11);
 }
 data = data.reverse();
-$('#numdays').html('Last ' + data.length + ' days performance');
+$('#numdays').html('Last ' + data.length + ' days completion %');
 
 var x = d3.scaleLinear()
     .domain([0, d3.max(data)])
