@@ -156,7 +156,7 @@ var updateStats = function() {
 			if(arr[i] == 1)completed++;
 		}
 		var per = completed/total * 100;
-		stats.push(per);
+		stats.push(Math.floor(per));
 	}
 	localStorage.setItem('stats', JSON.stringify(stats) );
 	location.reload();
