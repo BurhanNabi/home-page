@@ -115,41 +115,22 @@ d3.select(".chart")
 
 
 
+
+
+
+
+
 // Moment.js
 
+/*Main heading date*/
 var now = moment().format('DD MMMM YYYY'); // December 4th 2016, 12:06:26 am
 console.log(now);
 $('#today').html(now);
 
 
 
-// console.log(moment("20111031", "YYYYMMDD").fromNow()); // 5 years ago
-// console.log(moment("20120620", "YYYYMMDD").fromNow()); // 4 years ago
-console.log(moment().startOf('day').fromNow());        // 14 minutes ago
-console.log(moment().endOf('day').fromNow());          // in a day
-// console.log(moment().startOf('hour').fromNow());       // 14 minutes ago
 
 
-var manageDate = function() {
-	var str = localStorage.getItem('current');
-	var today = moment().format('DD MMMM YYYY');
-	if(str == null) {
-		localStorage.setItem('current',today);
-		return;
-	}
-	console.log("STORED: "+str);
-	var prev  = moment(str, 'DD MMMM YYYY');
-
-	if(prev.isSame(today)) {
-		console.log("Same day");
-	}else {
-		localStorage.setItem('current',today);
-		
-		updateStats();
-		newDay();
-	}
-}
-manageDate();
 
 
 var updateStats = function() {
@@ -168,6 +149,7 @@ var updateStats = function() {
 	if(arr.length == 0) {
 		stats.push(100);
 	}else {
+		console.log("Calculating stats");
 		var total = arr.length;
 		var completed = 0;
 		for (var i = 0; i < arr.length; i++) {
@@ -177,7 +159,11 @@ var updateStats = function() {
 		stats.push(per);
 	}
 	localStorage.setItem('stats', JSON.stringify(stats) );
+	location.reload();
 }
+
+
+
 
 
 var newDay = function() {
@@ -185,6 +171,49 @@ var newDay = function() {
 	localStorage.removeItem('checked');
 	location.reload();
 }
+
+
+
+var manageDate = function() {
+	var str = localStorage.getItem('current');
+	var today = moment().format('DD MMMM YYYY');
+	if(str == null) {
+		localStorage.setItem('current',today);
+		return;
+	}
+	console.log("STORED: "+str);
+	var prev  = moment(str, 'DD MMMM YYYY');
+
+	if(prev.isSame(today)) {
+		console.log("Same day");
+	}else {
+
+		console.log("New day");
+		localStorage.setItem('current',today);
+		updateStats();
+		newDay();
+	}
+}
+manageDate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -232,8 +261,4 @@ setInterval(function() {
 
 
 
-
-
-
-// Pie chart
 
